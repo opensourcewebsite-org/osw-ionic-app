@@ -18,7 +18,7 @@ Please read through our [Installation Instructions](INSTALL.md).
 
 ## API Documentation (in development)
 
-Please read through our [API Documentation](https://github.com/opensourcewebsite-org/apidoc-opensourcewebsite-org/).
+Please read through our [API Documentation](https://github.com/opensourcewebsite-org/apidocs-opensourcewebsite-org/).
 
 ## Questions and Suggestions
 
