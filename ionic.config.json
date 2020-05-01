@@ -1,0 +1,7 @@
+{
+  "name": "osw-ionic-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

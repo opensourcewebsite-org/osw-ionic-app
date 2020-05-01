@@ -1,0 +1,52 @@
+
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+
+env:
+  CI: true
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
+
+      - name: E2E
+        run: npm run e2e -- --protractor-config=./e2e/protractor-ci.conf.js
+
+  build:
+    name: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build -- --prod
+
+      - name: Deploy pwa
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: npx firebase deploy --token "$FIREBASE_TOKEN"

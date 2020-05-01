@@ -1,22 +1,31 @@
-# phpstorm project files
-.idea
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
 
-# netbeans project files
-nbproject
-
-# zend studio for eclipse project files
-.buildpath
-.project
-.settings
-
-# windows thumbnail cache
-Thumbs.db
-
-# composer vendor dir
-/vendor
-
-# composer itself is not needed
-composer.phar
-
-# Mac DS_Store Files
+*~
+*.sw[mnpcod]
+.tmp
+*.tmp
+*.tmp.*
+*.sublime-project
+*.sublime-workspace
 .DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+$RECYCLE.BIN/
+
+*.log
+log.txt
+npm-debug.log*
+
+/.idea
+/.ionic
+/.sass-cache
+/.sourcemaps
+/.versions
+/.vscode
+/coverage
+/dist
+/node_modules
+/platforms
+/plugins
+/www
