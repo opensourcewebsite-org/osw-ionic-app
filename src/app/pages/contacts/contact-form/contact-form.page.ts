@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User, ContactsService } from '../contacts.service';
+import {finalize} from "rxjs/operators";
+import {LoadingService} from "../../../services/loading.service";
 
 @Component({
   selector: 'osw-contact-form',
@@ -17,16 +19,20 @@ export class ContactFormPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private contactsService: ContactsService
+    private contactsService: ContactsService,
+    private loadingService: LoadingService,
   ) {
     this.contactId = this.route.snapshot.params.id;
   }
 
   async ngOnInit() {
+    this.loadingService.present()
     if (!this.contactId) {
       this.formGroup = this.initForm();
     } else {
-      this.contact = await this.contactsService.getContactById(this.contactId).toPromise();
+      this.contact = await this.contactsService.getContactById(this.contactId)
+        .pipe(finalize(() => this.loadingService.dismiss()))
+        .toPromise();
       this.formGroup = this.initForm(this.contact);
     }
   }
