@@ -1,0 +1,23 @@
+<ion-content>
+  <ion-list insert="true" lines="none" class="ion-padding-none">
+    <div class="logo ion-text-center">
+      <img src="assets/icon/favicon.png">
+    </div>
+    
+    <form [formGroup]="formGroup" class="ion-margin-top">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+
+      <div (click)="doLogin()" class="ion-padding ion-margin-top">
+        <ion-button expand="block">Login</ion-button>
+      </div>
+    </form>
+  </ion-list>
+</ion-content>
