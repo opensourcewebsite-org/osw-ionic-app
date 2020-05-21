@@ -2,7 +2,7 @@
 
 First off, thanks for taking the time to contribute!
 
-Please read through [Installation Instructions](INSTALL.md).
+Please read through our [Installation Instructions](INSTALL.md).
 
 ## Getting Started
 
