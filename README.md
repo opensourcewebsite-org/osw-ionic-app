@@ -1,5 +1,7 @@
 <h1 align="center">osw-ionic-app</h1>
 
+[![Github Actions](https://github.com/opensourcewebsite-org/osw-ionic-app/workflows/build/badge.svg)](https://github.com/opensourcewebsite-org/osw-ionic-app/actions)
+
 Mobile App (PWA) for OpenSourceWebsite, using [Ionic](https://ionicframework.com).
 
 The repository is a part of the [OpenSourceWebsite Organization](https://github.com/opensourcewebsite-org).
